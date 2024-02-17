@@ -1,7 +1,7 @@
-package org.marx.spring.bootstrap.service;
+package org.marx.spring.rest.service;
 
-import org.marx.spring.bootstrap.model.User;
-import org.marx.spring.bootstrap.repositories.UserRepository;
+import org.marx.spring.rest.model.User;
+import org.marx.spring.rest.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

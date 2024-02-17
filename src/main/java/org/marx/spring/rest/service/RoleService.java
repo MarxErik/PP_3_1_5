@@ -1,7 +1,7 @@
-package org.marx.spring.bootstrap.service;
+package org.marx.spring.rest.service;
 
 
-import org.marx.spring.bootstrap.model.Role;
+import org.marx.spring.rest.model.Role;
 
 import java.util.List;
 

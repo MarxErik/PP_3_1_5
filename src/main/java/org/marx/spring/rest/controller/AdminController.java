@@ -1,9 +1,9 @@
-package org.marx.spring.bootstrap.controller;
+package org.marx.spring.rest.controller;
 
 
-import org.marx.spring.bootstrap.model.User;
-import org.marx.spring.bootstrap.service.RoleService;
-import org.marx.spring.bootstrap.service.UserService;
+import org.marx.spring.rest.model.User;
+import org.marx.spring.rest.service.RoleService;
+import org.marx.spring.rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,12 +1,12 @@
-package org.marx.spring.bootstrap.configs;
+package org.marx.spring.rest.configs;
 
-import org.marx.spring.bootstrap.model.Role;
-import org.marx.spring.bootstrap.model.User;
-import org.marx.spring.bootstrap.service.RoleService;
-import org.marx.spring.bootstrap.service.UserService;
+
+import org.marx.spring.rest.model.Role;
+import org.marx.spring.rest.model.User;
+import org.marx.spring.rest.service.RoleService;
+import org.marx.spring.rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 
 import javax.annotation.PostConstruct;
 import java.util.HashSet;

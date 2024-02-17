@@ -1,6 +1,6 @@
-package org.marx.spring.bootstrap.repositories;
+package org.marx.spring.rest.repositories;
 
-import org.marx.spring.bootstrap.model.Role;
+import org.marx.spring.rest.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

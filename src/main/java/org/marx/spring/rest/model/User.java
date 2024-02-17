@@ -1,4 +1,4 @@
-package org.marx.spring.bootstrap.model;
+package org.marx.spring.rest.model;
 
 import lombok.Data;
 import lombok.NonNull;

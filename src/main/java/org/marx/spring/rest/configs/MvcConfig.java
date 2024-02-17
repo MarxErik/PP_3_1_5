@@ -1,4 +1,4 @@
-package org.marx.spring.bootstrap.configs;
+package org.marx.spring.rest.configs;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
