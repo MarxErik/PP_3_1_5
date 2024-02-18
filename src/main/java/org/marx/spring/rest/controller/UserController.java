@@ -1,31 +1,18 @@
 package org.marx.spring.rest.controller;
 
-import org.marx.spring.rest.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.marx.spring.rest.model.User;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.security.Principal;
-
-@Controller
+@RestController
+@RequestMapping("/userBootstrap")
 public class UserController {
 
-    private final UserService userService;
-
-    @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
-    }
-
-    @GetMapping("/user")
-    public String show(Principal principal, Model model) {
-        model.addAttribute("user", userService.findByUsername(principal.getName()));
-        return "userBootstrap";
-    }
-
-    @GetMapping
-    public String loginPage() {
-        return "login";
+    @GetMapping("/auth")
+    public ResponseEntity<User> getAuthUser(@AuthenticationPrincipal User user) {
+        return ResponseEntity.ok(user);
     }
 }

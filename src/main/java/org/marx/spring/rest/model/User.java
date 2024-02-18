@@ -66,10 +66,6 @@ public class User implements UserDetails {
         return sb.toString();
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;
