@@ -60,12 +60,6 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
-    public String roleToString() {
-        StringBuilder sb = new StringBuilder();
-        this.roles.forEach(x -> sb.append(x.getName()).append(" "));
-        return sb.toString();
-    }
-
     @Override
     public boolean isAccountNonExpired() {
         return true;

@@ -1,6 +1,5 @@
 package org.marx.spring.rest.service;
 
-import org.marx.spring.rest.model.User;
 import org.marx.spring.rest.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,8 +17,8 @@ public class UserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user = userRepository.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException("User with email = " + email + " not exist!"));
-        return user;
+        return userRepository.findByEmail(email).orElseThrow(() ->
+                new UsernameNotFoundException("User with email = " + email + " not exist!"));
     }
 
 }
