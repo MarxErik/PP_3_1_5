@@ -3,6 +3,7 @@ package org.marx.spring.rest.controller;
 
 import org.marx.spring.rest.model.Role;
 import org.marx.spring.rest.model.User;
+import org.marx.spring.rest.security.UserPrincipal;
 import org.marx.spring.rest.service.RoleService;
 import org.marx.spring.rest.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/adminBootstrap")
@@ -28,53 +30,56 @@ public class AdminController {
     }
 
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getUserList() {
-        System.out.println("Work users");
-        List<User> users = userService.getUserList();
-        return users != null && !users.isEmpty()
-                ? new ResponseEntity<>(userService.getUserList(), HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<List<User>> showAllUser() {
+//        System.out.println("Work users");
+//        List<User> users = userService.getUserList();
+//        return users != null && !users.isEmpty()
+//                ? new ResponseEntity<>(userService.getUserList(), HttpStatus.OK)
+//                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(userService.getUserList(), HttpStatus.OK);
     }
 
     @GetMapping("users/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable("id") long id) {
-        System.out.println("Work id");
-        User user = userService.findUserById(id);
-        return user != null
-                ? new ResponseEntity<>(user, HttpStatus.OK)
-                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    public ResponseEntity<User> showById(@PathVariable("id") long id) {
+//        System.out.println("Work id");
+//        User user = userService.findUserById(id);
+//        Optional<User> user = userService.findUserById(id);
+//        return user != null
+//                ? new ResponseEntity<>(user.get(), HttpStatus.OK)
+//                : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(userService.findUserById(id).get(), HttpStatus.OK);
     }
 
     @GetMapping("/user")
-    public ResponseEntity<User> getAuthUser(@AuthenticationPrincipal User user) {
-        return ResponseEntity.ok(user);
+    public ResponseEntity<User> getAuthUser(@AuthenticationPrincipal UserPrincipal user) {
+        return ResponseEntity.ok(user.getUser());
     }
 
     @GetMapping("/roles")
-    public ResponseEntity<List<Role>> getAllRoles() {
+    public ResponseEntity<List<Role>> showAllRoles() {
         System.out.println("Work roles");
         List<Role> roleList = roleService.findAllRoles();
         return ResponseEntity.ok(roleList);
     }
 
     @PostMapping("/users")
-    public ResponseEntity<HttpStatus> saveNewUser(@RequestBody User user) {
+    public ResponseEntity<HttpStatus> create(@RequestBody User user) {
         System.out.println("Work Post");
-        userService.createUser(user);
+        userService.create(user);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @PutMapping("/users")
-    public ResponseEntity<HttpStatus> updateUser(@RequestBody User user) {
+    public ResponseEntity<HttpStatus> update(@RequestBody User user) {
         System.out.println("Work Put");
-        userService.updateUser(user);
+        userService.update(user);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<HttpStatus> deleteUser(@PathVariable("id") Long id) {
+    public ResponseEntity<HttpStatus> delete(@PathVariable("id") Long id) {
         System.out.println("Work Delete");
-        userService.deleteUser(id);
+        userService.deleteById(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 }

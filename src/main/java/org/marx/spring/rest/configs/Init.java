@@ -41,10 +41,10 @@ public class Init {
 
         User admin = new User("ADMIN", "ADMIN", (byte) 20, "admin@mail.ru", "ADMIN", adminRoles);
 
-        userService.createUser(admin);
+        userService.create(admin);
 
         User user = new User("user", "user", (byte) 20, "user@mail.ru", "user", userRoles);
 
-        userService.createUser(user);
+        userService.create(user);
     }
 }

@@ -1,4 +1,4 @@
-package org.marx.spring.rest.configs;
+package org.marx.spring.rest.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
