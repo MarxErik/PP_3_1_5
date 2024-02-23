@@ -76,24 +76,6 @@ function getAllUsers() {
         .catch(err => console.log(err));
 }
 
-// function getCurrentUser() {
-//     fetch("adminBootstrap/user")
-//         .then(res => res.json())
-//         .then(js => {
-//             $('#emailCurrentUser').append(`<span>${js.email}</span>`)
-//             $('#roleCurrentUser').append(`<span>${js.roles.map(r => r.name.substring(0))}</span>`)
-//             const user = `$(
-//                     <tr>
-//                         <td>${js.id}</td>
-//                         <td>${js.username}</td>
-//                         <td>${js.lastName}</td>
-//                         <td>${js.age}</td>
-//                         <td>${js.email}</td>
-//                         <td>${js.roles.map(r => r.name.substring(0))}</td>
-//                     </tr>)`;
-//             $('#oneUser').append(user)
-//         })
-// }
 
 function getCurrentUser() {
     fetch("adminBootstrap/user")
@@ -120,36 +102,6 @@ function getCurrentUser() {
         });
 }
 
-
-//NEW USER
-// function newUser() {
-//     let newUserForm = $('#new-user-form')[0]
-//     fillRoles(newUserForm);
-//     newUserForm.addEventListener("submit", (ev) => {
-//         ev.preventDefault()
-//         ev.stopPropagation()
-//
-//         let newUser = JSON.stringify({
-//             username: $(`[name="username"]`, newUserForm).val(),
-//             lastName: $(`[name="lastName"]`, newUserForm).val(),
-//             age: $(`[name="age"]`, newUserForm).val(),
-//             email: $(`[name="email"]`, newUserForm).val(),
-//             password: $(`[name="password"]`, newUserForm).val(),
-//             roles: getRole(newUserForm)
-//         })
-//         fetch(URL, {
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: newUser
-//         }).then(r => {
-//             newUserForm.reset()
-//             $('#users-table-tab')[0].click()
-//
-//         })
-//     })
-// }
 
 function newUser() {
     let newUserForm = $('#new-user-form')[0]
@@ -181,39 +133,6 @@ function newUser() {
 }
 
 
-//editModal
-// function showEditModal(id) {
-//     const editModal = new bootstrap.Modal(document.querySelector('#edit'));
-//     const editForm = $('#edit-form')[0]
-//     showModal(editForm, editModal, id)
-//     editForm.addEventListener('submit', (ev) => {
-//         ev.preventDefault()
-//         ev.stopPropagation()
-//         let newUser = JSON.stringify({
-//             id: $(`[name="id"]`, editForm).val(),
-//             username: $(`[name="username"]`, editForm).val(),
-//             lastName: $(`[name="lastName"]`, editForm).val(),
-//             age: $(`[name="age"]`, editForm).val(),
-//             email: $(`[name="email"]`, editForm).val(),
-//             password: $(`[name="password"]`, editForm).val(),
-//             roles: getRole(editForm)
-//         })
-//         fetch(URL, {
-//             method: 'PUT',
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body: newUser
-//         }).then(r => {
-//             editModal.hide()
-//             $('#users-table-tab')[0].click()
-//             if (!r.ok) {
-//                 alert("User with this email already exist!!")
-//             }
-//         })
-//     })
-// }
-
 function showEditModal(id) {
     const editModal = new bootstrap.Modal(document.querySelector('#edit'));
     const editForm = $('#edit-form')[0]
@@ -242,7 +161,7 @@ function showEditModal(id) {
             if (!r.ok) {
                 alert("User with this email already exists!!")
             } else {
-                location.reload(); 
+                location.reload();
             }
         })
     })
@@ -282,14 +201,6 @@ function showModal(form, modal, id) {
     })
 }
 
-// function fillRoles(form) {
-//     roleList.forEach(role => {
-//         let option = `<option value="${role.id}">
-//                                  ${role.name}
-//                             </option>`
-//         $(`[name="roles"]`, form).append(option)
-//     })
-// }
 
 function fillRoles(form) {
     const rolesSelect = $(`[name="roles"]`, form);

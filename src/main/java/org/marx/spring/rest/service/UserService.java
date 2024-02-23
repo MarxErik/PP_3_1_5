@@ -18,16 +18,4 @@ public interface UserService {
     Optional<User> findByUsername(String username);
 
     Optional<User> findUserById(long id);
-//    Optional<User> findByUserEmail(String email);
-//
-//    List<User> getUserList();
-//
-//    void create(User user);
-//
-//    void deleteById(Long userId);
-//
-//    void update(User updateUser);
-//
-//    Optional<User> findByUsername(String username);
-
 }

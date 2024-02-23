@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+
 public class UserPrincipal implements UserDetails {
 
     private final User user;
@@ -40,9 +41,6 @@ public class UserPrincipal implements UserDetails {
         return user.getRoles().stream()
                 .map(RolePrincipal::new)
                 .collect(Collectors.toSet());
-    }
-    public User getUser() {
-        return user;
     }
 
     @Override
