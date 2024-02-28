@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> userFromDB = userRepository.findByEmail(updateUser.getEmail());
         if (userFromDB.isEmpty() ||
                 Objects.equals(userFromDB.get().getId(), updateUser.getId())) {
-            if (userFromDB.get().getPassword() == null || !userFromDB.get().getPassword()
+            if (!userFromDB.get().getPassword()
                     .equals(updateUser.getPassword())) {
                 updateUser.setPassword(bCryptPasswordEncoder.encode(updateUser.getPassword()));
             }
