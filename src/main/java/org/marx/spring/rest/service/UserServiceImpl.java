@@ -51,7 +51,9 @@ public class UserServiceImpl implements UserService {
         Optional<User> userFromDB = userRepository.findByEmail(updateUser.getEmail());
         if (userFromDB.isEmpty() ||
                 Objects.equals(userFromDB.get().getId(), updateUser.getId())) {
-            updateUser.setPassword(bCryptPasswordEncoder.encode(updateUser.getPassword()));
+            if (userFromDB.get().getPassword() == null) {
+                updateUser.setPassword(bCryptPasswordEncoder.encode(updateUser.getPassword()));
+            }
             userRepository.save(updateUser);
 
         } else throw new IllegalArgumentException();

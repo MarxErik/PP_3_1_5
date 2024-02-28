@@ -61,6 +61,7 @@ function deleteUser() {
 
 //Edit User
 let formEdit = document.forms["formEdit"];
+
 editUser();
 
 async function editModal(id) {
