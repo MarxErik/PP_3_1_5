@@ -4,45 +4,15 @@ const roleList = []
 $(document).ready(function () {
     getCurrentUser();
     getAllUsers();
-    fetch("http://localhost:8080/adminBootstrap/roles")
-        .then(response => response.json())
-        .then(roles => {
-            roles.forEach(role => {
-                roleList.push(role)
-            })
-        })
+    // fetch("http://localhost:8080/adminBootstrap/roles")
+    //     .then(response => response.json())
+    //     .then(roles => {
+    //         roles.forEach(role => {
+    //             roleList.push(role)
+    //         })
+    //     })
 })
 
-// function getAllUsers() {
-//     const usersTable = $('.users-table')
-//     usersTable.empty()
-//     fetch(URL)
-//         .then(response => response.json())
-//         .then(users => {
-//             users.forEach(user => {
-//                 let row = `$(
-//                     <tr>
-//                         <td>${user.id}</td>
-//                         <td>${user.username}</td>
-//                         <td>${user.lastName}</td>
-//                         <td>${user.age}</td>
-//                         <td>${user.email}</td>
-//                         <td>${user.roles.map(r => r.name.substring(0))}</td>
-//                         <td>
-//                             <button type="button" class="btn btn-primary" data-toggle="modal"
-//                             onclick="showEditModal(${user.id})">Edit</button>
-//                         </td>
-//                         <td>
-//                             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-//                             onclick="showDeleteModal(${user.id})">Delete</button>
-//                         </td>
-//                     </tr>
-//                 )`
-//                 usersTable.append(row)
-//             })
-//         })
-//         .catch(err => console.log(err))
-// }
 
 function getAllUsers() {
     const usersTable = $('.users-table');
@@ -59,7 +29,7 @@ function getAllUsers() {
                         <td>${user.lastName}</td>
                         <td>${user.age}</td>
                         <td>${user.email}</td>
-                        <td>${user.roles.map(r => r.name.substring(0))}</td>  
+                        <td>${user.roles[0].name}</td>  
                         <td>
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                             onclick="showEditModal(${user.id})">Edit</button>
@@ -71,6 +41,7 @@ function getAllUsers() {
                     </tr>`
                 );
                 usersTable.append(row);
+                console.log(user.roles);
             });
         })
         .catch(err => console.log(err));
