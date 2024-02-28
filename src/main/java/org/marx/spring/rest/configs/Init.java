@@ -27,13 +27,13 @@ public class Init {
     @PostConstruct
     public void initUsers() {
 
-        Role adminRole = new Role("ADMIN");
+        Role adminRole = new Role("ROLE_ADMIN");
         Set<Role> adminRoles = new HashSet<>();
         adminRoles.add(adminRole);
 
         roleService.createRole(adminRole);
 
-        Role userRole = new Role("USER");
+        Role userRole = new Role("ROLE_USER");
         Set<Role> userRoles = new HashSet<>();
         userRoles.add(userRole);
 
