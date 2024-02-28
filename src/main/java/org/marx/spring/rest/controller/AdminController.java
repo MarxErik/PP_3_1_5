@@ -52,28 +52,24 @@ public class AdminController {
 
     @GetMapping("/roles")
     public ResponseEntity<List<Role>> showAllRoles() {
-        System.out.println("Work roles");
         List<Role> roleList = roleService.findAllRoles();
         return ResponseEntity.ok(roleList);
     }
 
     @PostMapping("/users")
     public ResponseEntity<HttpStatus> create(@RequestBody User user) {
-        System.out.println("Work Post");
         userService.create(user);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @PutMapping("/users")
     public ResponseEntity<HttpStatus> update(@RequestBody User user) {
-        System.out.println("Work Put");
         userService.update(user);
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping("/users/{id}")
     public ResponseEntity<HttpStatus> delete(@PathVariable("id") Long id) {
-        System.out.println("Work Delete");
         userService.deleteById(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }
