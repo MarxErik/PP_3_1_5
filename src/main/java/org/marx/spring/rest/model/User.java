@@ -15,6 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Data
@@ -26,6 +27,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Size(min = 2)
     @Column(name = "userName")
     private String username;
 
