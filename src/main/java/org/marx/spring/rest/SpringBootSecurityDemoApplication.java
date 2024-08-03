@@ -10,6 +10,7 @@ public class SpringBootSecurityDemoApplication {
         SpringApplication.run(SpringBootSecurityDemoApplication.class, args);
         System.out.println(1);
 
+
     }
 
 }
